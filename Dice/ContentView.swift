@@ -2,9 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var randomNumber = 1
-    @State var timer: Timer?
-    @State var isRolling = false
+    @State private var randomNumber = 1
+    @State private var timer: Timer?
+    @State private var isRolling = false
 
     var body: some View {
         VStack {
