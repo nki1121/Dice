@@ -15,7 +15,7 @@ struct ContentView: View {
             Spacer()
             Button {
                 print("ボタンが押されたよ")
-                randomNumber = 4
+                randomNumber = Int.random(in: 1...6)
             } label: {
                 Text("サイコロを振る")
                     .padding()
