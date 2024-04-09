@@ -35,7 +35,7 @@ struct ContentView: View {
                     .foregroundColor(.black) // 文字色を黒にする
                     .cornerRadius(10) // ボタンの角に丸みをつける
             }
-            .disabled(true) // ボタンを無効にさせるかどうか
+            .disabled(isRolling) // ボタンを無効にさせるかどうか
             Spacer()
         }
         .padding()
