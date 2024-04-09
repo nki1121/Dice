@@ -30,7 +30,7 @@ struct ContentView: View {
         .padding()
     }
     
-    func playDice() {
+    private func playDice() {
         print("ボタンが押されたよ")
         isRolling = true
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {
