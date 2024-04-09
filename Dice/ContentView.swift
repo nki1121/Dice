@@ -4,6 +4,7 @@ struct ContentView: View {
     
     @State var randomNumber = 1
     @State var timer: Timer?
+    @State var isRolling = false
 
     var body: some View {
         VStack {
@@ -16,6 +17,7 @@ struct ContentView: View {
             Spacer()
             Button {
                 print("ボタンが押されたよ")
+                isRolling = true
                 timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {
                     _ in randomNumber = Int.random(in: 1...6)
                 }
@@ -24,6 +26,7 @@ struct ContentView: View {
                     // タイマーをストップさせる2行
                     timer?.invalidate()
                     timer = nil
+                    isRolling = false
                 }
             } label: {
                 Text("サイコロを振る")
@@ -32,6 +35,7 @@ struct ContentView: View {
                     .foregroundColor(.black) // 文字色を黒にする
                     .cornerRadius(10) // ボタンの角に丸みをつける
             }
+            .disabled(true) // ボタンを無効にさせるかどうか
             Spacer()
         }
         .padding()
