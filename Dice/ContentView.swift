@@ -16,18 +16,7 @@ struct ContentView: View {
                 .padding() // 内側に余白をつける
             Spacer()
             Button {
-                print("ボタンが押されたよ")
-                isRolling = true
-                timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {
-                    _ in randomNumber = Int.random(in: 1...6)
-                }
-                // 0.5秒遅らせて処理を行いたいとき
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    // タイマーをストップさせる2行
-                    timer?.invalidate()
-                    timer = nil
-                    isRolling = false
-                }
+                playDice()
             } label: {
                 Text("サイコロを振る")
                     .padding()
@@ -39,6 +28,21 @@ struct ContentView: View {
             Spacer()
         }
         .padding()
+    }
+    
+    func playDice() {
+        print("ボタンが押されたよ")
+        isRolling = true
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {
+            _ in randomNumber = Int.random(in: 1...6)
+        }
+        // 0.5秒遅らせて処理を行いたいとき
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // タイマーをストップさせる2行
+            timer?.invalidate()
+            timer = nil
+            isRolling = false
+        }
     }
 }
 
