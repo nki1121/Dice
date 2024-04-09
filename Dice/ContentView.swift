@@ -1,19 +1,14 @@
-//
-//  ContentView.swift
-//  Dice
-//
-//  Created by 中井晋平 on 2024/04/09.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Image(systemName: "die.face.1")
+            Button {
+                print("ボタンが押されたよ")
+            } label: {
+                Text("サイコロを振る")
+            }
         }
         .padding()
     }
